@@ -13,14 +13,18 @@ export const env = {
   port: Number(process.env.PORT) || 4000,
   isProduction: process.env.NODE_ENV === 'production',
   jwtSecret: process.env.JWT_SECRET || 'dev-only-secret-change-me',
-  db: {
-    host: process.env.PGHOST || 'localhost',
-    port: Number(process.env.PGPORT) || 5432,
-    user: process.env.PGUSER || 'postgres',
-    password: process.env.PGPASSWORD || '',
-    database: process.env.PGDATABASE || 'splitease',
-  },
+db: {
+  host: process.env.PGHOST || 'localhost',
+  port: Number(process.env.PGPORT) || 5432,
+  user: process.env.PGUSER || 'postgres',
+  password: process.env.PGPASSWORD || '',
+  database: process.env.PGDATABASE || 'splitease',
+ssl: process.env.PGHOST?.includes('render.com')
+  ? { rejectUnauthorized: false }
+  : undefined,
+},
   uploadsDir: path.join(SERVER_ROOT, 'uploads'),
   databaseDir: path.join(PROJECT_ROOT, 'database'),
   clientDist: path.join(PROJECT_ROOT, 'client', 'dist'),
 };
+
