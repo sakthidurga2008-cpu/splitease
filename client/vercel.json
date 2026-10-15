@@ -1,0 +1,9 @@
+
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://splitease-backend-o43r.onrender.com/api/:path*"
+    }
+  ]
+}
