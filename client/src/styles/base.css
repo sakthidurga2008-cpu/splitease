@@ -1,0 +1,587 @@
+/* Base: reset, type, and the form controls used everywhere. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-stretch: 88%;
+  letter-spacing: -0.005em;
+}
+
+h2 {
+  font-size: 1.0625rem;
+}
+
+h3 {
+  font-size: 0.9375rem;
+}
+
+a {
+  color: inherit;
+}
+
+strong {
+  font-weight: 600;
+}
+
+small {
+  font-size: 0.8125rem;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Rupee amounts line up digit under digit. */
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.is-good {
+  color: var(--pine);
+}
+
+.is-bad {
+  color: var(--brick);
+}
+
+.is-muted {
+  color: var(--faint);
+}
+
+/* Buttons */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+
+.button-primary {
+  background: var(--action);
+  color: var(--action-ink);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--action-hover);
+}
+
+.button-quiet {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.button-quiet:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--faint);
+}
+
+.button-danger {
+  background: var(--brick);
+  color: var(--surface);
+}
+
+.button-small {
+  min-height: 32px;
+  padding: 0 11px;
+  font-size: 0.875rem;
+}
+
+.button-wide {
+  width: 100%;
+  min-height: 42px;
+}
+
+.button:disabled {
+  opacity: 0.55;
+}
+
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.text-button:hover:not(:disabled) {
+  text-decoration-color: currentColor;
+}
+
+.text-button-muted {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.text-button-danger {
+  color: var(--brick);
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 0;
+  border-radius: var(--radius-m);
+  background: none;
+  color: var(--muted);
+}
+
+.icon-button:hover {
+  background: var(--sunken);
+  color: var(--ink);
+}
+
+.icon-button-small {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-s);
+}
+
+/* Form fields */
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field label,
+.choices legend {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='date'],
+input[type='search'],
+select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  background: var(--raised);
+  color: var(--ink);
+}
+
+input::placeholder {
+  color: var(--faint);
+}
+
+input:hover,
+select:hover {
+  border-color: var(--faint);
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline-offset: 0;
+  border-color: var(--focus);
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field-invalid input,
+.field-invalid select {
+  border-color: var(--brick);
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.field-error {
+  color: var(--brick);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.form-error {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: var(--radius-m);
+  background: var(--brick-soft);
+  color: var(--brick);
+  font-weight: 500;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+.form-grid .span-2 {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* An input with the rupee sign in front, or a percent sign behind */
+.input-prefix,
+.input-suffix {
+  position: relative;
+}
+
+.input-prefix > span,
+.input-suffix > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.input-prefix > span {
+  left: 12px;
+}
+
+.input-prefix > input {
+  padding-left: 27px;
+}
+
+.input-suffix > span {
+  right: 11px;
+}
+
+.input-suffix > input {
+  padding-right: 27px;
+  text-align: right;
+}
+
+.input-small {
+  width: 116px;
+  flex: none;
+}
+
+.input-small > input {
+  min-height: 34px;
+}
+
+.input-with-button {
+  position: relative;
+}
+
+.input-with-button > input {
+  padding-right: 44px;
+}
+
+.input-with-button > .icon-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+/* Groups of choices */
+
+.choices {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.choices legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.choices > .segmented {
+  justify-self: start;
+  max-width: 100%;
+}
+
+.choices > .splitbar {
+  margin: 6px 0 4px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 99px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+
+.chip:hover {
+  border-color: var(--faint);
+}
+
+.chip.is-on {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--surface);
+  font-weight: 500;
+}
+
+.chip input,
+.segmented input,
+.option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip:has(:focus-visible),
+.segmented label:has(:focus-visible),
+.option:has(:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--sunken);
+}
+
+.segmented label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 13px;
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.12s, color 0.12s;
+}
+
+.segmented label:hover {
+  color: var(--ink);
+}
+
+.segmented label.is-on {
+  background: var(--raised);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+}
+
+.segmented-s label {
+  min-height: 26px;
+  padding: 0 9px;
+  font-size: 0.8125rem;
+}
+
+.switch {
+  width: 44px;
+  height: 26px;
+  flex: none;
+  padding: 3px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--line-strong);
+  transition: background-color 0.15s;
+}
+
+.switch > span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--raised);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  transition: transform 0.15s;
+}
+
+.switch.is-on {
+  background: var(--pine);
+}
+
+.switch.is-on > span {
+  transform: translateX(18px);
+}
+
+/* Small labels */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 21px;
+  padding: 0 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-good {
+  background: var(--pine-soft);
+  color: var(--pine);
+}
+
+.badge-warn {
+  background: var(--turmeric-soft);
+  color: var(--turmeric);
+}
+
+.badge-plain {
+  background: var(--sunken);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* People */
+
+.member-1 { --member: var(--m1); }
+.member-2 { --member: var(--m2); }
+.member-3 { --member: var(--m3); }
+.member-4 { --member: var(--m4); }
+.member-5 { --member: var(--m5); }
+.member-6 { --member: var(--m6); }
+
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--member) 17%, var(--surface));
+  color: var(--member);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.avatar-s {
+  width: 26px;
+  height: 26px;
+  font-size: 0.6875rem;
+}
+
+.avatar-l {
+  width: 60px;
+  height: 60px;
+  font-size: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

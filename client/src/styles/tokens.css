@@ -1,0 +1,91 @@
+/* Design tokens: every colour, size and font used on the site is named here.
+   The dark theme only swaps the colour values. */
+
+:root {
+  --font: 'Anek Latin Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --radius-s: 6px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+  --page-width: 1080px;
+  --bar-height: 60px;
+
+  color-scheme: light;
+
+  /* Surfaces, from the page background up to things that float above it */
+  --paper: #eef1ef;
+  --surface: #fafbfa;
+  --raised: #ffffff;
+  --sunken: #e3e8e5;
+  --hover: #f1f4f2;
+
+  /* Text and lines */
+  --ink: #17231f;
+  --muted: #56655f;
+  --faint: #7d8b85;
+  --line: #d8dfdb;
+  --line-strong: #bcc7c1;
+
+  /* Meaning: money coming back, money owed, something waiting */
+  --pine: #17755c;
+  --pine-soft: #dcebe5;
+  --brick: #b4483a;
+  --brick-soft: #f4e2de;
+  --turmeric: #8a5b00;
+  --turmeric-soft: #f4e9cf;
+
+  /* Main buttons */
+  --action: #17231f;
+  --action-hover: #2b3b35;
+  --action-ink: #fafbfa;
+
+  --focus: #17755c;
+  --backdrop: rgb(15 21 19 / 0.42);
+  --shadow-pop: 0 14px 34px -14px rgb(23 35 31 / 0.3), 0 2px 6px rgb(23 35 31 / 0.07);
+
+  /* One colour per person, used for avatars and the parts of a split bar */
+  --m1: #2c6f8c;
+  --m2: #8a671c;
+  --m3: #7b4f7a;
+  --m4: #3c7a4c;
+  --m5: #a2553c;
+  --m6: #57628a;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #0f1513;
+  --surface: #151d1a;
+  --raised: #1b2521;
+  --sunken: #212c28;
+  --hover: #1a2420;
+
+  --ink: #e3eae6;
+  --muted: #9aaaa3;
+  --faint: #73827c;
+  --line: #26322d;
+  --line-strong: #3a4842;
+
+  --pine: #5cc6a3;
+  --pine-soft: #183229;
+  --brick: #ee9383;
+  --brick-soft: #3a211d;
+  --turmeric: #e2b558;
+  --turmeric-soft: #33290f;
+
+  --action: #e3eae6;
+  --action-hover: #ffffff;
+  --action-ink: #0f1513;
+
+  --focus: #5cc6a3;
+  --backdrop: rgb(0 0 0 / 0.6);
+  --shadow-pop: 0 16px 38px -14px rgb(0 0 0 / 0.7), 0 2px 6px rgb(0 0 0 / 0.3);
+
+  --m1: #7bb7d3;
+  --m2: #d6b461;
+  --m3: #c79dc6;
+  --m4: #89c698;
+  --m5: #e39d85;
+  --m6: #a6afd6;
+}

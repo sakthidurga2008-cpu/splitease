@@ -1,0 +1,18 @@
+{
+  "name": "splitease",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SplitEase: a group expense sharing and bill-splitting website (React, Express, PostgreSQL)",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "db:setup": "npm --prefix server run db:setup --",
+    "db:reconcile": "npm --prefix server run db:reconcile",
+    "dev": "node scripts/dev.js",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "test": "npm --prefix server test"
+  }
+}
